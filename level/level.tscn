@@ -1,0 +1,175 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0s3eqd2oh4j0"]
+
+[ext_resource type="Script" path="res://level/level.gd" id="1_gu6nk"]
+[ext_resource type="Texture2D" uid="uid://ck5yt6r8it7xx" path="res://assets/spritesheet.png" id="1_gxix5"]
+[ext_resource type="PackedScene" uid="uid://bj8lqbxqcjgwm" path="res://player/player.tscn" id="2_tn8hx"]
+[ext_resource type="PackedScene" uid="uid://tkcekk12qsvf" path="res://hud/hud.tscn" id="4_02iof"]
+[ext_resource type="PackedScene" uid="uid://c6i444hfu1ubb" path="res://game_over_ui/game_over_ui.tscn" id="5_03d1v"]
+[ext_resource type="Texture2D" uid="uid://bycebaacf2mmm" path="res://assets/up.png" id="6_n10dr"]
+[ext_resource type="Texture2D" uid="uid://cjroeet26cqft" path="res://assets/left.png" id="7_77at7"]
+[ext_resource type="Texture2D" uid="uid://bib5214ex88sw" path="res://assets/right.png" id="7_j00jj"]
+[ext_resource type="FontFile" uid="uid://b7v8csrpsc52c" path="res://assets/LuckiestGuy-Regular.ttf" id="9_2y2en"]
+[ext_resource type="Texture2D" uid="uid://dvjjpviyueff4" path="res://assets/down.png" id="9_gd6s7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oysas"]
+resource_name = "level_tiles"
+texture = ExtResource("1_gxix5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tdmve"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_oysas")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5hta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4the"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytsys"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_gu6nk")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_tdmve")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(458763, 196608, 0, 458764, 262144, 0, 458765, 327680, 0, 458766, 393216, 0, 458767, 458752, 0, 458768, 524288, 0, 524299, 196608, 0, 524300, 262144, 0, 524301, 196608, 0, 524302, 262144, 0, 524303, 327680, 0, 524304, 393216, 0, 589835, 262144, 0, 589836, 327680, 0, 589837, 393216, 0, 589838, 458752, 0, 589839, 524288, 0, 589840, 393216, 0, 655371, 327680, 0, 655372, 393216, 0, 655373, 458752, 0, 655374, 524288, 0, 655375, 262144, 0, 655376, 327680, 0, 720907, 262144, 0, 720908, 327680, 0, 720909, 393216, 0, 720910, 458752, 0, 720911, 524288, 0, 720912, 327680, 0, 786443, 262144, 0, 786444, 327680, 0, 786445, 393216, 0, 786446, 458752, 0, 786447, 524288, 0, 786448, 262144, 0, 524305, 458752, 0, 524306, 524288, 0, 589841, 458752, 0, 589842, 524288, 0, 655377, 393216, 0, 655378, 458752, 0, 720913, 393216, 0, 720914, 458752, 0, 786449, 327680, 0, 786450, 393216, 0, 851979, 262144, 0, 851980, 327680, 0, 851981, 393216, 0, 851982, 458752, 0, 851983, 524288, 0, 851984, 327680, 0, 917518, 327680, 0, 917519, 393216, 0, 917520, 458752, 0, 917521, 524288, 0, 917522, 458752, 0, 917523, 524288, 0, 851985, 393216, 0, 851986, 458752, 0, 851987, 524288, 0, 655379, 524288, 0, 786451, 458752, 0, 786452, 524288, 0, 720915, 524288, 0, 917515, 196608, 0, 917516, 196608, 0, 917517, 262144, 0, 983053, 196608, 0, 983054, 262144, 0, 983055, 327680, 0, 983056, 393216, 0, 983057, 458752, 0, 983058, 524288, 0, 720906, 196608, 0, 786442, 196608, 0, 655369, 196608, 0, 655370, 262144, 0, 851978, 196608, 0, 589834, 196608, 0)
+layer_1/name = "Walls"
+layer_1/tile_data = PackedInt32Array(458762, 131072, 0, 524298, 131072, 0, 589833, 131072, 0, 720905, 131072, 0, 655368, 131072, 0, 786441, 131072, 0, 851977, 131072, 0, 917514, 131072, 0, 983051, 131072, 0, 983052, 131072, 0, 983050, 131072, 0, 917513, 131072, 0, 720904, 131072, 0, 589832, 131072, 0, 524297, 131072, 0, 393226, 131072, 0, 393227, 131072, 0, 393228, 131072, 0, 393229, 131072, 0, 393230, 131072, 0, 393231, 131072, 0, 393232, 131072, 0, 393233, 131072, 0, 458769, 131072, 0, 458770, 131072, 0, 458771, 131072, 0, 524307, 131072, 0, 589843, 131072, 0, 589844, 131072, 0, 655380, 131072, 0, 720916, 131072, 0, 720917, 131072, 0, 786453, 131072, 0, 851989, 131072, 0, 851988, 131072, 0, 917524, 131072, 0, 983060, 131072, 0, 983059, 131072, 0, 1048595, 131072, 0, 1048594, 131072, 0, 1048593, 131072, 0, 1048592, 131072, 0, 1048591, 131072, 0, 1048590, 131072, 0, 1048589, 131072, 0, 1048588, 131072, 0, 655372, 131072, 0, 720908, 131072, 0, 786444, 131072, 0, 786445, 131072, 0, 786446, 131072, 0, 786447, 131072, 0, 786448, 131072, 0, 851984, 131072, 0, 917520, 131072, 0, 589840, 131072, 0, 589839, 131072, 0, 589838, 131072, 0)
+layer_2/name = "Targets"
+layer_2/tile_data = PackedInt32Array(655369, 589824, 0, 786452, 589824, 0)
+layer_3/name = "Boxes"
+layer_3/tile_data = PackedInt32Array(589837, 65536, 0, 917519, 65536, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_tn8hx")]
+position = Vector2(495, 432)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_02iof")]
+mouse_filter = 1
+
+[node name="TouchControls" type="Control" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = -94.0
+offset_right = 366.0
+offset_bottom = -54.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/TouchControls"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -186.0
+offset_right = -193.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD/TouchControls/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Up" type="TextureButton" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_n10dr")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Left" type="TextureButton" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("7_77at7")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Right" type="TextureButton" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("7_j00jj")
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Down" type="TextureButton" parent="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("9_gd6s7")
+stretch_mode = 5
+
+[node name="Reload" type="Button" parent="CanvasLayer/HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 891.0
+offset_top = 710.0
+offset_right = 1000.0
+offset_bottom = 743.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_2y2en")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5hta")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l4the")
+text = "Reload"
+
+[node name="Quit" type="Button" parent="CanvasLayer/HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 750.0
+offset_top = 710.0
+offset_right = 859.0
+offset_bottom = 743.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("9_2y2en")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5hta")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytsys")
+text = "Quit
+"
+
+[node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("5_03d1v")]
+visible = false
+mouse_filter = 1
+
+[connection signal="pressed" from="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/TouchControls/MarginContainer/GridContainer/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Quit" to="." method="_on_quit_pressed"]

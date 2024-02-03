@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkcekk12qsvf"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_1qt6k"]
+[ext_resource type="LabelSettings" uid="uid://p7e0udyhsvsl" path="res://assets/GL_32_WH.tres" id="1_v4wfp"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qt6k")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level:"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="MC/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Moves:"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="MC/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Best:"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="MC/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("1_v4wfp")
+vertical_alignment = 1
